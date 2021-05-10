@@ -1,0 +1,14 @@
+/*===================*/
+/*   DEVICES MOBILE  */
+/*===================*/
+
+@media (max-width: 768px) {
+
+	#contato form #name{
+		margin-bottom: 16px;
+	}
+	/* #faq .card .card-header h5 a div{
+		font-size: 12px;
+	} */
+
+}
