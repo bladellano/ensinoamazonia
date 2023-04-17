@@ -8,6 +8,7 @@ use Source\Model\Photo;
 use Source\Model\Banner;
 use Source\Model\Evento;
 use Source\Model\Article;
+use Source\Model\Service;
 use Source\Model\PageSite;
 use Source\Model\PhotoAlbum;
 use \Psr\Http\Message\ResponseInterface as Response;
@@ -92,15 +93,34 @@ class SiteController extends Controller
         $articles_one_less = (new Article())->listAllOneLess();
         $articles_first = (new Article())->firstArticle();
         $banners = (new Banner())->listAll();
-        // echo '<pre>$banners <br />'; var_dump($banners ); echo '</pre>';die;
+        $services = (new Service())->listAll();
+
+        $this->createMenuServicesOnline();
 
         $this->page->setTpl("main", [
             'eventos' => $eventos,
             'articles_first' => $articles_first,
             'articles_one_less' => $articles_one_less,
-            'banners' => $banners
+            'banners' => $banners,
+            'services' => $services,
         ]);
         exit;
+    }
+
+    private function createMenuServicesOnline() {
+
+        $services = (new Service())->listAll();
+        $html = "";
+
+        foreach ($services as $s):
+            $html .= '<a class="dropdown-item" href="'.$s["link"].'" target="_blank">
+            <i class="fas fa-user fa-sm"></i> '.$s["name"].'
+            </a>'; 
+        endforeach;
+
+        $arquivo = getcwd() . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . "site" . DIRECTORY_SEPARATOR . "menu-services-online.html";
+
+        file_put_contents($arquivo, $html);
     }
 
     /**
@@ -162,7 +182,6 @@ class SiteController extends Controller
 
     public function showEvent(Request $request, Response $response, array $args)
     {
-
         $all_eventos = $this->evento->listAll();
         $this->evento->getWithSlug($args["slug"]);
         $data =  $this->evento->getValues();

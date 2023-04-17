@@ -6,6 +6,7 @@ use Source\Controller\UsersController;
 use Source\Controller\AlbumsController;
 use Source\Controller\BannersController;
 use Source\Controller\EventosController;
+use Source\Controller\ServicesController;
 use Source\Controller\ArticlesController;
 use Source\Controller\ArticlesCategoriesController;
 
@@ -110,6 +111,20 @@ $app->group('/admin/artigos', function () use ($app) {
     $app->put('/{id}', ArticlesController::class . ':update');
     $app->get('/{id}/delete', ArticlesController::class . ':destroy');
 });
+
+/**
+ * ADMIN SERVIÇOS
+ */
+
+ $app->group('/admin/servicos-online', function () use ($app) {
+    $app->get('', ServicesController::class . ':index');
+    $app->get('/create', ServicesController::class . ':create');
+    $app->post('/store', ServicesController::class . ':store');
+    $app->get('/{id}', ServicesController::class . ':edit');
+    $app->put('/{id}', ServicesController::class . ':update');
+    $app->get('/{id}/delete', ServicesController::class . ':destroy');
+});
+
 
 /**
  * ADMIN USUÁRIOS
