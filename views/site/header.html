@@ -5,7 +5,6 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- {$head} -->
-	
 	<meta property="og:type" content="website"/>
 	<meta property="og:site_name" content="Sistema de Ensino Amazônia"/>
 	<meta property="og:locale" content="pt_BR"/>
@@ -91,10 +90,8 @@
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenu">
 								<button class="dropdown-item" type="button"><i class="fas fa-phone fa-sm"></i> (91) 98880-0630</button>
-								<!-- <button class="dropdown-item" type="button"><i class="fas fa-phone fa-sm"></i> (91) 3081-5246</button> -->
 							</div>
 						</div>
-
 					</div>
 					<div class="col-md-3 text-right mt-3">
 						<!-- DROPDOWN EMAILS -->
@@ -103,10 +100,7 @@
 								<i class="fas fa-chevron-down text--default fa-lg"></i> E-MAILS PARA CONTATO
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenu">
-								<!-- <button class="dropdown-item" type="button"><i class="fas fa-envelope fa-sm"></i> contato@ensinoamazonia.com.br</button> -->
 								<button class="dropdown-item" type="button"><i class="fas fa-envelope fa-sm"></i> secreataria@ensinoamazonia.com.br</button>
-								<!-- <button class="dropdown-item" type="button"><i class="fas fa-envelope fa-sm"></i> coordenacao@ensinoamazonia.com.br</button> -->
-								<!-- <button class="dropdown-item" type="button"><i class="fas fa-envelope fa-sm"></i> ouvidoria@ensinoamazonia.com.br</button> -->
 							</div>
 						</div>
 					</div>
@@ -117,12 +111,9 @@
 							<button class="btn bg--dropdown" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fas fa-chevron-down text--default fa-lg"></i> SERVIÇOS ON-LINE
 							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenu">
-								<a class="dropdown-item" href="http://201.30.93.64:90/sea/aluno/login/login.php" target="_blank">
-									<i class="fas fa-user fa-sm"></i> ALUNO ON-LINE</a>
-									<a class="dropdown-item"  href="http://201.30.93.64:90/sea/professor/login2/" target="_blank" type="button">
-										<i class="fas fa-user fa-sm"></i> PROFESSOR ON-LINE</a>
-									</div>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenu">
+									{include="menu-services-online"}
+								</div>
 								</div>
 							</div>
 						</div>
@@ -164,7 +155,6 @@
 										<a class="dropdown-item" href="http://webmail.ensinoamazonia.com.br/" target="_blank">WEBMAIL</a>
 									</div>
 								</li>
-
 
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="nd-inst" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GALERIA</a>
