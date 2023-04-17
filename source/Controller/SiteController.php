@@ -92,6 +92,7 @@ class SiteController extends Controller
         $articles_one_less = (new Article())->listAllOneLess();
         $articles_first = (new Article())->firstArticle();
         $banners = (new Banner())->listAll();
+        // echo '<pre>$banners <br />'; var_dump($banners ); echo '</pre>';die;
 
         $this->page->setTpl("main", [
             'eventos' => $eventos,

@@ -11,7 +11,7 @@ use Source\Model\User;
 
 function resume($string, $chars = 180)
 {
-    return strip_tags(mb_strimwidth(($string), 0, $chars + 3, "..."));
+    return strip_tags(mb_strimwidth($string, 0, $chars + 3, "..."));
 }
 
 function toDatePtBr($date, $showTime = true)
