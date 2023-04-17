@@ -96,6 +96,7 @@ class SiteController extends Controller
         $services = (new Service())->listAll();
 
         $this->createMenuServicesOnline();
+        $this->createMenuServicesOnlineMobile();
 
         $this->page->setTpl("main", [
             'eventos' => $eventos,
@@ -122,6 +123,22 @@ class SiteController extends Controller
 
         file_put_contents($arquivo, $html);
     }
+
+    private function createMenuServicesOnlineMobile() {
+
+        $services = (new Service())->listAll();
+        $html = "";
+
+        foreach ($services as $s):
+            $html .= '<a class="dropdown-item" href="'.$s['link'].'" target="_blank">'.$s['name'].'</a>'; 
+        endforeach;
+
+        $arquivo = getcwd() . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . "site" . DIRECTORY_SEPARATOR . "menu-services-online-mobile.html";
+
+        file_put_contents($arquivo, $html);
+    }
+
+    
 
     /**
      * Exibe páginas avulsas
